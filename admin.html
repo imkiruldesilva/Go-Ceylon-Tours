@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Management Portal – Go Ceylon Travels</title>
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    body {
+      background-color: var(--slate-100);
+    }
+
+    .admin-navbar {
+      background: var(--ocean-deep);
+      padding: 1rem 0;
+      color: var(--white);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .admin-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      border: 1px solid var(--slate-200);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+    }
+
+    .stat-kpi-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      border: 1px solid var(--slate-200);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .stat-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .admin-tabs-nav {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 2px solid var(--slate-200);
+      margin-bottom: 1.75rem;
+    }
+
+    .admin-tab {
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      color: var(--slate-600);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all var(--transition-fast);
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-size: 1rem;
+    }
+
+    .admin-tab.active {
+      color: var(--ocean-navy);
+      border-bottom-color: var(--ceylon-amber);
+    }
+
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: var(--slate-50);
+      color: var(--slate-700);
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--slate-200);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--slate-200);
+      vertical-align: middle;
+    }
+
+    tr:hover td {
+      background: var(--sand-50);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-pending {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-contacted {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .badge-confirmed {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .badge-cancelled {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Admin Navbar -->
+  <header class="admin-navbar">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <div class="logo-icon" style="width:36px; height:36px;">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <div>
+          <span style="font-weight:800; font-family:var(--font-display); letter-spacing:0.05em; font-size:1.1rem;">GO CEYLON TRAVELS</span>
+          <span style="font-size:0.75rem; background:rgba(245,158,11,0.25); color:var(--ceylon-sunburst); padding:0.15rem 0.5rem; border-radius:4px; margin-left:0.5rem; font-weight:700;">ADMIN</span>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <a href="index.html" class="btn btn-outline-white btn-sm">
+          &larr; View Public Site
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+    
+    <!-- KPI Summary Row -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+      <div class="stat-kpi-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #0284c7, #0e2444);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+        </div>
+        <div>
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">Total Bookings</div>
+          <div id="statTotalBookings" style="font-size: 1.85rem; font-weight: 800; color: var(--ocean-navy);">0</div>
+        </div>
+      </div>
+
+      <div class="stat-kpi-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        </div>
+        <div>
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">Pending Action</div>
+          <div id="statPendingBookings" style="font-size: 1.85rem; font-weight: 800; color: var(--ceylon-amber);">0</div>
+        </div>
+      </div>
+
+      <div class="stat-kpi-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981, #047857);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        <div>
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">Confirmed Tours</div>
+          <div id="statConfirmedBookings" style="font-size: 1.85rem; font-weight: 800; color: var(--tropical-emerald);">0</div>
+        </div>
+      </div>
+
+      <div class="stat-kpi-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase;">Contact Messages</div>
+          <div id="statTotalMessages" style="font-size: 1.85rem; font-weight: 800; color: #6d28d9;">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Tabs -->
+    <div class="admin-card">
+      <div class="admin-tabs-nav">
+        <button class="admin-tab active" data-target="panelBookings">
+          Tour Bookings (<span id="tabCountBookings">Inquiries</span>)
+        </button>
+        <button class="admin-tab" data-target="panelMessages">
+          Contact Messages
+        </button>
+      </div>
+
+      <!-- Panel 1: Bookings Management -->
+      <div id="panelBookings" class="admin-panel">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+          <!-- Search -->
+          <div style="position:relative; width:340px;">
+            <input type="text" id="bookingSearchInput" class="form-control" style="padding-left:2.5rem;" placeholder="Search by Ref, Name, Email, Country...">
+            <svg style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); width:18px; height:18px; color:var(--slate-400);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+
+          <!-- Status Filter -->
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <label for="bookingStatusFilter" style="font-size:0.85rem; font-weight:600; color:var(--slate-600);">Filter Status:</label>
+            <select id="bookingStatusFilter" class="form-control" style="width:auto; padding:0.5rem 1rem;">
+              <option value="ALL">All Statuses</option>
+              <option value="PENDING">Pending Only</option>
+              <option value="CONTACTED">Contacted</option>
+              <option value="CONFIRMED">Confirmed</option>
+              <option value="CANCELLED">Cancelled</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Reference No</th>
+                <th>Guest Details</th>
+                <th>Tour Package</th>
+                <th>Travel Date</th>
+                <th>Pickup Location</th>
+                <th>Status</th>
+                <th>Update Status</th>
+              </tr>
+            </thead>
+            <tbody id="bookingsTableBody">
+              <!-- Rendered dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Panel 2: Contact Messages Management -->
+      <div id="panelMessages" class="admin-panel" style="display:none;">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Sender</th>
+                <th>Subject</th>
+                <th>Message Content</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="messagesTableBody">
+              <!-- Rendered dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

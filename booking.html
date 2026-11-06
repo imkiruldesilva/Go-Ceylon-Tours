@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour Booking Inquiry – Go Ceylon Travels</title>
+  <meta name="description" content="Submit your Sri Lanka tour booking inquiry with Go Ceylon Travels. Personalized private vehicle, chauffeur guide, bespoke pricing, and zero prepayment needed.">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .booking-page-hero {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Coconut_Tree_Hill%2C_Sri_Lanka.jpg');
+    }
+
+    .booking-wrapper-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--slate-200);
+      margin-top: -4rem;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 4rem;
+    }
+
+    .trust-pillar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--sand-50);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--slate-200);
+    }
+
+    .trust-pillar svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--tropical-emerald);
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo-container">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <div class="logo-text-group">
+          <span class="brand-title">GO CEYLON</span>
+          <span class="brand-tagline">Travels &bull; Sri Lanka</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="tours.html" class="nav-link">Tours</a>
+        <a href="attractions.html" class="nav-link">Sri Lanka Attractions</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button onclick="window.scrollTo({top: 400, behavior:'smooth'})" class="btn btn-primary btn-sm">Book Now</button>
+        <button class="mobile-toggle" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+      <span class="brand-title" style="color:var(--white);">GO CEYLON</span>
+      <button class="mobile-drawer-close" style="background:none; border:none; color:var(--white); font-size:1.8rem; cursor:pointer;">&times;</button>
+    </div>
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="tours.html" class="mobile-nav-link">Tours</a>
+    <a href="attractions.html" class="mobile-nav-link">Sri Lanka Attractions</a>
+    <a href="about.html" class="mobile-nav-link">About Us</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="booking.html" class="mobile-nav-link active" style="color:var(--ceylon-sunburst);">Tour Booking Inquiry</a>
+    <a href="admin.html" class="mobile-nav-link" style="color:var(--slate-400); font-size:0.9rem;">Admin Management</a>
+  </aside>
+
+  <!-- Hero Banner -->
+  <section class="subpage-hero booking-page-hero">
+    <div class="subpage-hero-content">
+      <span class="badge-pill">Zero Prepayment &bull; Free Custom Quote</span>
+      <h1 class="font-display">TOUR BOOKING INQUIRY</h1>
+      <p>Fill out the details below to receive a personalized Sri Lankan itinerary proposal, hotel options, and dedicated private vehicle quote.</p>
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span>Booking Inquiry</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Booking Form Section -->
+  <section class="section section-sand" style="padding-top: 0;">
+    <div class="container container-narrow">
+      
+      <!-- Trust Pillars -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: -2.5rem; margin-bottom: 2rem; position: relative; z-index: 11;">
+        <div class="trust-pillar">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <div>
+            <strong style="display:block; font-size:0.85rem; color:var(--ocean-navy);">No Instant Payment</strong>
+            <span style="font-size:0.75rem; color:var(--slate-600);">Pay only after finalizing</span>
+          </div>
+        </div>
+        <div class="trust-pillar">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          <div>
+            <strong style="display:block; font-size:0.85rem; color:var(--ocean-navy);">SLTDA Licensed</strong>
+            <span style="font-size:0.75rem; color:var(--slate-600);">Official tourism agency</span>
+          </div>
+        </div>
+        <div class="trust-pillar">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          <div>
+            <strong style="display:block; font-size:0.85rem; color:var(--ocean-navy);">24h Fast Response</strong>
+            <span style="font-size:0.75rem; color:var(--slate-600);">WhatsApp & Email quote</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Card -->
+      <div class="booking-wrapper-card">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <h2 style="font-size: 2rem; color: var(--ocean-navy); margin-bottom: 0.5rem;">Plan Your Dream Vacation</h2>
+          <p style="color: var(--slate-600); font-size: 0.95rem; margin: 0;">
+            Please complete all required fields (*). You will receive an immediate reference number upon submission.
+          </p>
+        </div>
+
+        <form class="booking-form">
+          <!-- 1. Full Name & Email -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Full Name <span class="req">*</span></label>
+              <input type="text" name="fullName" class="form-control" placeholder="e.g. Eleanor Vance" required>
+              <div class="invalid-feedback">Please enter your full name</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address <span class="req">*</span></label>
+              <input type="email" name="email" class="form-control" placeholder="e.g. eleanor@example.co.uk" required>
+              <div class="invalid-feedback">Please enter a valid email address</div>
+            </div>
+          </div>
+
+          <!-- 2. WhatsApp Number & Country -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">WhatsApp / Contact Number <span class="req">*</span></label>
+              <input type="tel" name="whatsappNumber" class="form-control" placeholder="+44 7911 123456" required>
+              <div class="invalid-feedback">Please enter contact number with country code</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Country of Residence <span class="req">*</span></label>
+              <input type="text" name="country" class="form-control" placeholder="e.g. United Kingdom, Germany, France, USA" required>
+              <div class="invalid-feedback">Please specify your country</div>
+            </div>
+          </div>
+
+          <!-- 3. Tour Package & Preferred Date -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Select Tour Package <span class="req">*</span></label>
+              <select name="tourPackage" id="bookingTourPackage" class="form-control" required>
+                <option value="">-- Choose a Tour Package --</option>
+                <option value="Sri Lanka Cultural Tour">Sri Lanka Cultural Tour (8 Days / 7 Nights)</option>
+                <option value="Wildlife Safari Experience">Wildlife Safari Experience (7 Days / 6 Nights)</option>
+                <option value="Southern Coast Beach Tour">Southern Coast Beach Tour (6 Days / 5 Nights)</option>
+                <option value="Hill Country Adventure">Hill Country Adventure (7 Days / 6 Nights)</option>
+                <option value="Sri Lanka Round Tour">Sri Lanka Round Tour (12 Days / 11 Nights)</option>
+                <option value="Adventure and Nature Tours">Adventure and Nature Tours (9 Days / 8 Nights)</option>
+                <option value="Sri Lanka Family Adventure">Sri Lanka Family Adventure (10 Days / 9 Nights)</option>
+                <option value="Romantic Ceylon Honeymoon Retreat">Romantic Ceylon Honeymoon Retreat (9 Days / 8 Nights)</option>
+                <option value="Custom Tailor-Made Tour">Custom / Tailor-Made Private Tour</option>
+              </select>
+              <div class="invalid-feedback">Please select a tour package</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Preferred Travel Date <span class="req">*</span></label>
+              <input type="date" name="travelDate" id="bookingTravelDate" class="form-control" required>
+              <div class="invalid-feedback">Please select a travel start date</div>
+            </div>
+          </div>
+
+          <!-- 4. Guests & Duration -->
+          <div class="form-row-3">
+            <div class="form-group">
+              <label class="form-label">Number of Adults (12+ yrs) <span class="req">*</span></label>
+              <input type="number" name="adultsCount" class="form-control" value="2" min="1" max="50" required>
+              <div class="invalid-feedback">At least 1 adult required</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Number of Children (0-11 yrs)</label>
+              <input type="number" name="childrenCount" class="form-control" value="0" min="0" max="20">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Number of Days <span class="req">*</span></label>
+              <input type="number" name="numberOfDays" class="form-control" value="7" min="1" max="60" required>
+              <div class="invalid-feedback">Must be at least 1 day</div>
+            </div>
+          </div>
+
+          <!-- 5. Pickup Location -->
+          <div class="form-group">
+            <label class="form-label">Pickup Location <span class="req">*</span></label>
+            <input type="text" name="pickupLocation" class="form-control" placeholder="e.g. Bandaranaike International Airport (CMB) / Hotel in Colombo or Negombo" required>
+            <div class="invalid-feedback">Please enter your pickup location</div>
+          </div>
+
+          <!-- 6. Special Requirements -->
+          <div class="form-group">
+            <label class="form-label">Special Requirements / Additional Message</label>
+            <textarea name="specialRequirements" class="form-control" rows="4" placeholder="Let us know your preferred accommodation standard (3★, 4★, 5★ or luxury boutique villas), dietary needs, anniversary/honeymoon celebration, or special places you want to include..."></textarea>
+          </div>
+
+          <div style="background:var(--slate-50); padding:1rem 1.25rem; border-radius:var(--radius-md); margin-bottom:1.5rem; font-size:0.85rem; color:var(--slate-600); display:flex; align-items:center; gap:0.5rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--ocean-teal)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <span>This is a non-binding travel inquiry. No credit card or instant payment is required now.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; font-size:1.1rem; padding:1rem;">
+            SUBMIT BOOKING REQUEST
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <div class="logo-container" style="margin-bottom: 1.25rem;">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </div>
+            <div class="logo-text-group">
+              <span class="brand-title">GO CEYLON TRAVELS</span>
+              <span class="brand-tagline">Explore Sri Lanka. Experience Paradise.</span>
+            </div>
+          </div>
+          <p>
+            Licensed by Sri Lanka Tourism Development Authority. Private chauffeured travel crafted with passion.
+          </p>
+        </div>
+
+        <div class="footer-col footer-links">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tours.html">All Tours</a></li>
+            <li><a href="attractions.html">Attractions</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-links">
+          <h4>Direct Support</h4>
+          <ul>
+            <li><a href="https://wa.me/94777613691" target="_blank" rel="noopener">WhatsApp: +94 77 761 3691</a></li>
+            <li><a href="mailto:goceylon.travels@gmail.com">goceylon.travels@gmail.com</a></li>
+            <li><a href="tel:+94777613691">+94 77 761 3691</a></li>
+            <li><span>Palathota Road, Kalutara</span></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Track Your Inquiry</h4>
+          <p style="font-size:0.85rem; color:rgba(255,255,255,0.7); margin-bottom:1rem;">
+            Already have a reference code? You can check status on WhatsApp or via our team.
+          </p>
+          <a href="admin.html" class="btn btn-outline-white btn-sm" style="width:100%;">
+            Admin Management
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Go Ceylon Travels (Pvt) Ltd. All Rights Reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/94777613691" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <span class="tooltip">Chat with us on WhatsApp</span>
+    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.074-2.18-.544-1.898-.79-3.13-2.73-3.224-2.856-.094-.127-.768-1.02-.768-1.946 0-.925.485-1.381.657-1.571.172-.191.376-.239.501-.239.126 0 .251.002.361.008.117.006.273-.044.428.328.157.375.534 1.303.581 1.399.047.095.078.207.016.333-.063.127-.094.207-.188.318-.094.111-.198.248-.283.333-.095.095-.194.198-.083.389.111.191.494.814 1.059 1.318.729.648 1.343.849 1.534.944.191.095.303.079.415-.048.111-.127.478-.556.604-.746.126-.191.251-.159.423-.095.172.063 1.091.514 1.279.608.188.095.313.143.361.222.047.079.047.46-.097.865z"/></svg>
+  </a>
+
+  <button class="scroll-top-btn" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/booking.js"></script>
+
+  <script>
+    // Prefill tour from URL param if available
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tourParam = urlParams.get('tour');
+      if (tourParam) {
+        const select = document.getElementById('bookingTourPackage');
+        if (select) {
+          let found = false;
+          for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].text.toLowerCase().includes(tourParam.toLowerCase()) ||
+                select.options[i].value.toLowerCase().includes(tourParam.toLowerCase())) {
+              select.selectedIndex = i;
+              found = true;
+              break;
+            }
+          }
+          if (!found) {
+            const opt = document.createElement('option');
+            opt.value = tourParam;
+            opt.textContent = tourParam;
+            opt.selected = true;
+            select.appendChild(opt);
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
